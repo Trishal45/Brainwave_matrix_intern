@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Graph Library -->
+</head>
+<body>
+
+    <div class="container">
+        <h1>💳 Expense Tracker</h1>
+
+        <div class="expense-form">
+            <input type="text" id="expense-name" placeholder="Expense Name">
+            <input type="number" id="expense-amount" placeholder="Amount">
+            <select id="expense-category">
+                <option value="Food">🍔 Food</option>
+                <option value="Transport">🚗 Transport</option>
+                <option value="Shopping">🛍️ Shopping</option>
+                <option value="Bills">📄 Bills</option>
+                <option value="Other">💡 Other</option>
+            </select>
+            <input type="date" id="expense-date">
+            <button onclick="addExpense()">➕ Add Expense</button>
+        </div>
+
+        <h2>Total Spent: ₹<span id="total-amount">0</span></h2>
+
+        <canvas id="expenseChart"></canvas> <!-- Expense Graph -->
+
+        <h2>Expense History</h2>
+        <ul id="expense-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
