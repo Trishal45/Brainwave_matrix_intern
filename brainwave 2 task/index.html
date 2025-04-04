@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Mart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- Banner Image -->
+        <img src="images/banner.jpg" alt="India Mart Banner" class="banner-image">
+        
+        <!-- Main Heading -->
+        <h1>India Mart</h1>
+
+        <!-- Currency Switch and Cart -->
+        <div class="currency-switch">
+            <label>Currency:</label>
+            <select id="currency">
+                <option value="INR">₹ INR</option>
+                <option value="USD">$ USD</option>
+            </select>
+        </div>
+        <div class="cart">
+            🛒 <span id="cart-count">0</span>
+            <button onclick="viewCart()">View Cart</button>
+        </div>
+    </header>
+
+    <main id="products">
+        <!-- Products will be loaded dynamically -->
+    </main>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Cart Overview</h2>
+            <ul id="cart-items"></ul>
+            <p><strong>Total: </strong><span id="cart-total">₹0</span></p>
+            <a href="checkout.html"><button>Proceed to Checkout</button></a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - India Mart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+    </header>
+
+    <main>
+        <h2>Order Summary</h2>
+        <ul id="order-items"></ul>
+        <p><strong>Total:</strong> <span id="order-total">₹0</span></p>
+
+        <h2>Billing Details</h2>
+        <form id="checkout-form">
+            <input type="text" placeholder="Full Name" required><br>
+            <input type="email" placeholder="Email" required><br>
+            <input type="text" placeholder="Shipping Address" required><br>
+            <button type="submit">Place Order</button>
+        </form>
+
+        <div id="success-message" style="display:none; color: green; font-weight: bold; margin-top: 20px;">
+            ✅ Your order has been placed successfully!
+        </div>
+    </main>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let total = cart.reduce((sum, item) => sum + item.price, 0);
+
+        document.getElementById("order-total").innerText = `₹${total}`;
+        document.getElementById("order-items").innerHTML = cart.map(item => `<li>${item.name} - ₹${item.price}</li>`).join('');
+
+        document.getElementById("checkout-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            // Clear cart and show confirmation
+            localStorage.removeItem("cart");
+            document.getElementById("checkout-form").style.display = "none";
+            document.getElementById("success-message").style.display = "block";
+        });
+    </script>
+</body>
+</html>
